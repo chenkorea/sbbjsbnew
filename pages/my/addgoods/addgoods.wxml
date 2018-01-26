@@ -58,8 +58,8 @@
 
     <view class="userinfo-view">
       <text class="userinfo-text">商品简介：</text>
-      <textarea class="userinfo-input" type="text" value="{{summary}}" focus="{{summaryFocus}}" bindblur="bindTextAreaBlur" style="height:100rpx" placeholder="请输入商品简介" />
-      <!-- <input class="userinfo-input" type="text" focus="{{summaryFocus}}" value="{{summary}}" bindinput="bindSummaryInput" placeholder="请输入商品简介" /> -->
+      <!-- <textarea class="userinfo-input" type="text" value="{{summary}}" focus="{{summaryFocus}}" bindblur="bindTextAreaBlur" style="height:100rpx" placeholder="请输入商品简介" /> -->
+       <input class="userinfo-input" type="text" focus="{{summaryFocus}}" value="{{summary}}" bindinput="bindTextAreaBlur" placeholder="请输入商品简介" /> 
     </view>
 
 
