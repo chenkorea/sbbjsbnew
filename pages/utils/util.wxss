@@ -1,0 +1,52 @@
+.c-red {
+  color: #E64240;
+}
+
+.c-white {
+  color: white;
+}
+
+.f-s-20 {
+  font-size: 20rpx;
+}
+
+.f-s-30 {
+  font-size: 30rpx;
+}
+
+.f-s-32 {
+  font-size: 32rpx;
+}
+
+.f-s-35 {
+  font-size: 35rpx;
+}
+
+.f-s-40 {
+  font-size: 40rpx;
+}
+
+.f-s-50 {
+  font-size: 50rpx;
+}
+
+.f-s-80 {
+  font-size: 80rpx;
+}
+
+
+.m-r-20 {
+  margin-right: 20rpx;
+}
+
+.m-b-20 {
+  margin-bottom: 20rpx;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.w80 {
+  width: 80%;
+}

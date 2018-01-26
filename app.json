@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/my/my",
+    "pages/my/order/order",
+    "pages/my/orderdetail/orderdetail",
+    "pages/logs/logs",
+    "pages/index/index",
+    "pages/my/money/money",
+    "pages/my/addgoods/addgoods",
+    "pages/my/orderprocess/orderprocess",
+    "pages/my/myorder/myorder",
+    "pages/userinfo/userinfo",
+    "pages/keymarkets/keymarkets",
+    "pages/keymarkets/goodsdetail/goodsdetail",
+    "pages/keymarkets/goodsclsfy/goodsclsfy",
+    "pages/index/finishorder/finishorder",
+    "pages/my/updatepwd/updatepwd",
+    "pages/login/findpwd/findpwd",
+    "pages/login/changepwd/changepwd",
+    "pages/login/reg/newregister"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF7F24",
+    "navigationBarTitleText": "锁帮帮技师",
+    "navigationBarTextStyle": "white"
+  }
+}

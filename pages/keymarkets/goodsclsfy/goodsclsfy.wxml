@@ -1,0 +1,26 @@
+<!--主盒子-->  
+<view class="container">  
+  <!--左侧栏-->  
+  <view class="nav_left">  
+    <block wx:for="{{navItems}}" wx:key="{{index}}">  
+      <!--当前项的id等于item项的id，那个就是当前状态-->  
+      <!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->  
+         <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.data_name}}</view>   
+    </block>  
+  </view>  
+  <!--右侧栏-->  
+  <view class="nav_right">  
+    <!--如果有数据，才遍历项-->  
+    <view wx:if="{{navItems[curIndex].childVos.length>0}}">  
+      <block wx:for="{{navItems[curIndex].childVos}}" wx:key="{{index}}">  
+        <view class="nav_right_items" bindtap="responseclsfy" data-name="{{item.data_name}}" data-code="{{item.data_code}}">  
+            <!--用view包裹图片组合，如果有图片就用，无图片提供就使用50x30的这个默认图片-->  
+            <!--如果有文字，就用文字；无文字就用其他-->  
+            <text>{{item.data_name}}</text>  
+        </view>  
+      </block>  
+    </view>  
+    <!--如果无数据，则显示数据-->  
+    <view wx:else>该商品分类暂无数据</view>  
+  </view>  
+</view>

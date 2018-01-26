@@ -1,0 +1,56 @@
+<!--orderprocess.wxml-->
+<view class="main_view">
+  <view class="order-item">
+    <view class="ct-item" catchtap="toDetail">
+      <view class="order-no">订单号：</view>
+      <view class="order-status">{{userOrder.order_no}}</view>
+      <icon class="right-arrow icon-icon iconfont" text="" />
+    </view>
+    <view hidden='{{!hasGuarantee}}' class="ct-item">
+      <view class="order-no">保修时间：</view>
+      <view class="order-status">{{userOrder.guarantee + (userOrder.guarantee_date_type == '1'?'月':'年')}}</view>
+    </view>
+    <view class="ct-item">
+      <view class="order-no">时   间：</view>
+      <view class="order-status">{{userOrder.service_time_describe}}</view>
+    </view>
+    <view class="ct-item">
+      <view class="order-no">类   别：</view>
+      <view class="order-status">{{userOrder.service_type_name}}-{{userOrder.service_item}}</view>
+    </view>
+    <view class="ct-item">
+      <view class="order-no">服务地址：</view>
+      <view class="order-status">{{userOrder.service_address}}</view>
+    </view>
+    <view class="ct-item">
+      <view class="order-no">下单顾客：</view>
+      <view class="order-status">{{userOrder.user_name}}</view>
+    </view>
+    <view class="ct-item" catchtap="toPhone">
+      <view class="order-no">联系电话：</view>
+      <view class="order-status">{{hidePhone}}</view>
+      <image class="phone_img" src="../../images/phone_dial.png"></image>
+    </view>
+    <view class="ct-item" hidden="{{userOrder.current_status == '03' || userOrder.current_status == '01'}}">
+      <view class="order-no">报   价：</view>
+      <view class="order-status" style="color: orange; font-size: 35rpx">{{userOrder.tatal_price}}元</view>
+    </view>
+
+    <view class="ct-item" catchtap="showLocation">
+      <view class="order-no">用户位置：</view>
+      <view class="order-status">点击查看</view>
+      <image class="phone_img" src="../../images/jiantou.png"></image>
+    </view>
+
+  </view>
+  
+  <view class="process_view" wx:for="{{ordersProcess}}" wx:key="{{index}}">
+    <view class="process_item">
+      <view class="{{index == 0?'top_text':'content_text'}}">{{item.operate_content}}</view>
+      <view class="time_text">{{item.operate_time_str}}</view>
+      <view class="bot_view"></view>
+      <view class="{{index == 0?'cicyle_top':'cicyle_view'}}"></view>
+    </view>
+  </view>
+
+</view>

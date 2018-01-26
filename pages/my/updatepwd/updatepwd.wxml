@@ -1,0 +1,7 @@
+<view class="main-view">
+  <input class="input oldpwd" focus='true' password placeholder="请输入登录密码" type="password" bindinput="oldpwd" value="{{oldpwd}}"/>
+  <input class="input newpwd" password placeholder="请输入新密码" type="password" bindinput="newpwd" value="{{newpwd}}"/>
+  <input class="input oldpwd" password placeholder="请确认新密码" type="password" bindinput="conformpwd" value="{{conformpwd}}"/>
+
+   <button class="confirm_btn" bindtap="bindViewTap">确认</button>
+</view>

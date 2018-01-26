@@ -1,0 +1,17 @@
+<!-- 猫眼展示 -->
+<view class="main_view">
+  <view class="air_container">
+    <view class="mv_item" wx:for="{{goods}}" wx:key="movieId" data-item="{{item}}" bindtap="goodsdetail">
+      <view class="mv_pic">
+        <image src="{{item.archives_url[0]}}" mode="scaleToFit" class="pic"></image>
+      </view>
+      <view class="info_view">
+      <view class="mv_name">{{item.name}}</view>
+      <view class="mv_price">￥ {{item.price}}</view>
+      </view>
+    </view>
+  </view>
+
+  <button class="classfy" bindtap="chooseclsfy">分类</button>
+
+</view>

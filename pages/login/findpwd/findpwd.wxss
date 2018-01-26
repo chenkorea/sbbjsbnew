@@ -1,0 +1,207 @@
+.main-view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #F0F0F0;
+}
+
+.login-view {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #FFFFFF;
+  margin-top: 40rpx;
+}
+
+.login-title {
+  color: #228B22;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100rpx;
+}
+
+
+.input {
+  position: absolute;
+  top: 0;
+  left: 30rpx;
+  width: 60%;
+  height: 80rpx;
+  background: red;
+  color: #333333;
+}
+
+.iconfont {
+  color: #FFF;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+
+.login_btn {
+  width: 80%;
+  height: 90rpx;
+  background: #228B22;
+  border-radius: 40rpx;
+  color: #FFFFFF;
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.next_en_btn {
+  width: 80%;
+  height: 90rpx;
+  background: #228B22;
+  border-radius: 40rpx;
+  color: #FFFFFF;
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.next_un_btn {
+  width: 80%;
+  height: 90rpx;
+  background: #999999;
+  border-radius: 40rpx;
+  color: #FFFFFF;
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.register_btn {
+  width: 80%;
+  height: 90rpx;
+  margin-left: 60rpx;
+  background: #FF6666;
+  border-radius: 40rpx;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+
+.user-view {
+  position: relative;
+  height: 90rpx;
+  background: #FFF;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.or_title {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  top: 0;
+  height: 90rpx;
+  width: 120rpx;
+}
+
+.pwd-view {
+  width: 45%;
+  height: 90rpx;
+  margin-left: 60rpx;
+  border-radius: 40rpx;
+  background: #999999;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+}
+
+.forget-text {
+  margin-left: 60rpx;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+  border-bottom: 2rpx solid #666666;
+}
+
+.user-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 180rpx;
+  height: 90rpx;
+  top: 0;
+}
+
+.verifycode-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 180rpx;
+  width: 45%;
+  height: 90rpx;
+  top: 0;
+}
+
+.pwd-text {
+  position: absolute;
+  padding-left:30rpx; 
+  left: 70rpx;
+  top: 185rpx;
+  width: 60%;
+}
+
+.send_btn {
+  position: absolute;
+  top: 175rpx;
+  right: 70rpx;
+  width: 30%;
+  height: 80rpx;
+  border-radius: 60rpx;
+  background: #FF6666;
+  color: #FFFFFF;
+  font-size: 30rpx;
+}
+
+.send_code_text {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   border-left: 1rpx solid #F0F0F0; 
+  color: #00B2EE;
+  font-size: 30rpx;
+}
+
+.nextstep_but {
+  color: #FFFFFF;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40rpx;
+  background-color: #FF7F24;
+  height: 90rpx;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+}
+
+.logo_view {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx;
+}
+
+.logo_phone {
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 45%;
+  margin-top: 50rpx;
+}
+
+.logo_text {
+  color: #333333;
+  font-size: 32rpx;
+}

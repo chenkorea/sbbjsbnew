@@ -1,0 +1,43 @@
+<!-- <view class="main-view">
+
+  <view class="login-view-bg">
+  </view>
+
+  <view class="login-view">
+   <view class="user-view">
+     <icon class="iconfont icon-wode" />
+     <input class="user-text" bindinput="getfogname" placeholder="手机号" type="number" value="{{fogphone}}"/>
+   </view>
+
+   <view class="pwd-view">
+     <input class="pwd-text" bindinput="getfogcode" placeholder="验证码" value="{{fogcode}}"/>
+   </view>
+
+   <button class="send_btn" bindtap="getcode">获取验证码</button>
+   <button class="{{nextstep}}" bindtap="bindViewTap">下一步</button>
+
+  </view>
+</view> -->
+
+<view class="main-view">
+
+  <image class="logo_phone" src="../../images/logo_phone.png"></image>  
+  <view class="logo_view">
+    <view class="logo_text">验证手机</view>
+  </view>
+
+  <view class="login-view">
+   <view class="user-view">
+     <text class="or_title">手机号</text>
+     <input class="user-text" bindinput="getfogname" focus='true' placeholder="请输入手机号" type="number" value="{{fogphone}}"/>
+   </view>
+
+   <view class="user-view">
+     <text class="or_title">验证码</text>
+     <input class="verifycode-text" bindinput="getfogcode" placeholder="验证码" value="{{fogcode}}"/>
+     <text class="send_code_text" bindtap="getcode">{{tips}}</text>  
+   </view>
+  </view>
+
+   <button class="nextstep_but" bindtap="bindViewTap">下一步</button>
+</view>

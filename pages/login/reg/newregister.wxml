@@ -1,0 +1,45 @@
+<!--pages/login/reg/newregister.wxml-->
+<view class="main-view">
+  
+  <view class="title-log">
+    <image class="lock-log"></image>
+    <text class="lock-title">锁帮帮,你身边的开锁专家</text>
+  </view>
+
+  <!-- 注册手机号码 -->
+  <view class='user-view'>
+    <image class='phone-img' src='../../images/phone_reg_nos.png'></image>
+    <input class="user-text" bindinput="getregname" placeholder="请输入您的手机号" type="number"/>
+  </view>
+
+  <!--verify -->
+  <view class='user-view'>
+    <image class='phone-img' src='../../images/verify_reg_nos.png'></image>
+    <input class="user-text" bindinput="getverifycode" placeholder="请输入验证码" type="number"/>
+    <view class="verifycode-button" catchtap="getcode">{{tips}}</view>
+  </view>
+
+  <!--pwd -->
+  <view class='user-view'>
+    <image class='phone-img' src='../../images/key_pwd_nor.png'></image>
+    <input class="user-text" bindinput="getregpasswd" placeholder="请输入密码" type="password" value="{{username}}"/>
+  </view>
+
+  <!-- pwd -->
+  <view class='user-view'>
+    <image class='phone-img' src='../../images/reconform_reg_nos.png'></image>
+    <input class="user-text" bindinput="getconformpasswd" placeholder="再次输入密码" type="password" value="{{username}}"/>
+  </view>
+
+  <view class="law-view">
+       <icon class="{{agreeBg}}"  bindtap="chooseagree"/>
+       <text class="law-text" bindtap="chooseagree">我同意《锁帮帮平台服务协议》</text>
+  </view>
+
+  <button class="register_en_btn" bindtap="bindViewTap">提交</button>
+
+  <view class="register_view">
+    <text>已有账户，</text><text class="register_text" bindtap="bindlogin">立即登录</text>
+  </view>
+  
+</view>

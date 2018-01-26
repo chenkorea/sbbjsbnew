@@ -1,0 +1,119 @@
+<view class="main-view">
+  <view class="head-view">
+    <view class="titl-1">未结金额（元）</view>
+    <view class="titl-2">3423.89元</view>
+  </view>
+
+  <scroll-view class="content-view" scroll-y="true">
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="type-view">
+        <text class="type-text">服务收益</text>
+        <text class="date-text">2017.07.10</text>
+      </view>
+      <view class="type-view">
+        <text class="type-text">余额：1232.28元</text>
+        <text class="money-text">+ 132</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

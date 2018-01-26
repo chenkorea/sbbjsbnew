@@ -1,0 +1,175 @@
+<!-- 我的订单页面 -->
+<view class="main-view">
+
+  <!-- 订单界面 -->
+  <view class="order_view" hidden="{{bottomstatus==2 || bottomstatus==3}}">
+    <view class="top-view">
+      <view class="left-status-view {{classone}}" data-id="1" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-fahuo" />
+        </view>
+          <text class="status-text">派工中</text>
+      </view>
+
+      <view class="left-status-view {{classtwo}}" data-id="2" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-gongzuokaizhanqingkuang" />
+        </view>
+        <text class="status-text">开工中</text>
+      </view>
+
+      <view class="left-status-view {{classThree}}" data-id="3" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-qiangdan2" />
+        </view>
+        <text class="status-text">已完工</text>
+      </view>
+    </view>
+
+      <scroll-view class="content-view" scroll-y="true">
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+        <view class="order-item">
+          <view class="order-no">订单号：ks2327543994322</view>
+          <view class="order-status">发起时间：2017年4月21号 12：23</view>
+          <view class="order-status">类   别：开锁服务</view>
+          <view class="order-status">服务地址：贵阳市南明但是但是登记号120</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">接单技师：彰显三</view>
+          <view class="order-status" hidden="{{orderstatus=='1'}}">报   价：200.00元</view>
+          <view class="order-status" hidden="{{orderstatus=='1' || orderstatus=='2'}}">完工时间：2017年4月21号13:00</view>
+        </view>
+      </scroll-view>
+  </view>
+  
+  <!-- 积分界面 -->
+  <view class="order_view" hidden="{{bottomstatus==1 || bottomstatus==3}}">
+    <!-- 积分列表 -->
+    <scroll-view class="score-list-view">
+      <view class="score-item">
+        <icon class="iconfont icon-jifen score-icon"/>
+        <text class="score-text">我的积分</text><text class="score-val">190分</text>
+      </view>
+      <view class="score-item">
+        <icon class="iconfont icon-duihuan score-icon"/>
+        <text class="score-text">积分兑换</text>
+      </view>
+      <view class="score-item">
+        <icon class="iconfont icon-ai-share score-icon"/>
+        <text class="score-text">好友邀请获得积分</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 我的界面 -->
+  <view class="my-view" hidden="{{bottomstatus==1 || bottomstatus==2}}">
+    <view class="my-header">
+      <image src="http://m.vstou.com/img/201511/hk4_8.jpg" class="user-header"></image>
+      <view class="name-view">
+        <view class="phone-val">152****7232</view>
+        <view class="level-val">普通会员</view>
+      </view>
+    </view>
+
+    <view class="seting-view">
+      <icon class="iconfont icon-mysss icon-kefu" />
+      <text class="my-title">客服</text>
+    </view>
+    <view class="seting-view">
+      <icon class="iconfont icon-mysss1 icon-shezhi" />
+      <text class="my-title">设置</text>
+    </view>
+  </view>
+  
+  <view class="botton-view">
+    <view class="bottom-bottom-view {{bottomone}}" data-id="1" bindtap="bindBottomViewTap">
+        <view class="bottom-mm">
+          <icon class="iconfont icon-dingdan orser" />
+        </view>
+          <text class="bottom-text">订单</text>
+      </view>
+
+      <view class="bottom-bottom-view {{bottomtwo}}" data-id="2" bindtap="bindBottomViewTap">
+        <view class="bottom-mm">
+          <icon class="iconfont icon-jifen orser" />
+        </view>
+        <text class="bottom-text">积分</text>
+      </view>
+
+      <view class="bottom-bottom-view {{bottomthree}}" data-id="3" bindtap="bindBottomViewTap">
+        <view class="bottom-mm">
+          <icon class="iconfont icon-wode orser" />
+        </view>
+        <text class="bottom-text">我的</text>
+      </view>
+  </view>
+</view>

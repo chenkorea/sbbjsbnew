@@ -1,0 +1,15 @@
+.input {
+  margin: 60rpx;
+  border: 2rpx solid #F0F0F0;
+  height: 90rpx;
+  color: #666666;
+  font-size: 30rpx;
+}
+
+.confirm_btn {
+  margin: 60rpx;
+  height: 90rpx;
+  background: #FF7F24;
+  color: #FFFFFF;
+  font-size: 30rpx;
+}

@@ -1,0 +1,68 @@
+<view class="main-view">
+  <view class="userinfo-view-bg">
+    <!-- <view class="userinfo-title-view">
+      <text>完善个人信息</text>
+    </view> -->
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">姓名：</text>
+
+      <input class="userinfo-input" type="text" focus="{{nameFocus}}" value="{{name}}" maxlength="20" bindinput="bindNameInput" placeholder="姓名" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">身份证号：</text>
+
+      <input class="userinfo-input" type="idcard" focus="{{idNumberFocus}}" value="{{idNumber}}" maxlength="18" bindinput="bindIdNumberInput" placeholder="身份证号" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">所在城市（自动定位，不能输入）：</text>
+
+      <input class="userinfo-input" type="text" value="{{city}}" disabled="disabled" bindinput="bindCityInput" placeholder="自动定位" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">服务项目（可选多个）：</text>
+
+      <checkbox-group bindchange="bindServiceTypesChange">
+        <label class="checkbox m-r-20 m-b-20 display-inline-block" wx:for="{{serviceTypesItemsTmp}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+          
+          <text class="c-black f-s-32">{{item.name}}</text>
+        </label>
+      </checkbox-group>
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">上传身份证照片（可上传多张）：</text>
+
+      <view class="userinfo-image-list">
+        <block wx:for="{{idNumberImageItems}}">
+          <template is="idNumberImageItem" data="{{item}}" />
+        </block>
+
+        <view class="userinfo-image-plus" bindtap="bindChooseIdNumberImageTap">
+          <icon class="iconfont icon-plus f-s-50 c-white" />
+        </view>
+      </view>
+    </view>
+
+    <view class="userinfo-view-save">
+      <view class="ct-save-btn" bindtap="bindSaveTap">保存</view>
+      <!-- <button type="warn" disabled="{{saveBtnDisabled}}" bindtap="bindSaveTap">保存</button> -->
+    </view>
+  </view>
+</view>
+
+<template name="idNumberImageItem">
+   <view class="userinfo-image">
+    <view class="userinfo-image-minus" data-index="{{item.index}}" bindtap="bindDeleteIdNumberImageTap">
+      <icon class="iconfont icon-guanbi3 f-s-35 c-red" />
+    </view>
+
+    <view class="userinfo-image-image" data-index="{{item.index}}" bindtap="bindPreviewIdNumberImageTap">
+      <image class="" src="{{item.path}}" />
+    </view>
+  </view>
+</template>

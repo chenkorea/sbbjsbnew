@@ -1,0 +1,57 @@
+<!--finishorder.wxml-->
+
+<view class="main_view">
+ <view class="drawer_content"> 
+ <view class="top grid"> 
+  <label class="title col-0">服务费用：</label> 
+  <input class="input_base input_h30 col-1 sele_text" name="service_price" value="{{service_price}}" bindinput="bindSePInput"></input> 
+ </view> 
+ <view class="top grid"> 
+  <label class="title col-0">附加服务费：</label> 
+  <input class="input_base input_h30 col-1" name="addtional_price" value="{{additional_service_price}}" bindinput="bindAddPInput"></input> 
+ </view> 
+ <view class="top grid"> 
+  <label class="title col-0">支付总额：</label> 
+  <label class="title-value">{{zhifuprice}}</label>
+ </view> 
+ <view class="top grid"> 
+  <label class="title col-0">保修时间：</label>
+  <input class="input_base1 input_h30 col-1" name="guarantee" value="{{guarantee}}" bindinput="bindguaranteePInput" type='number'></input>
+  <label class="title col-0">月</label>
+ </view> 
+
+ <view class="top bottom grid"> 
+  <label class="title col-0">支付方式：</label> 
+  <view wx:if="{{isShowPay}}">
+    <radio-group class="picker" bindchange="listenerRadioGroup">
+      <label class="radio" wx:for-items="{{payments}}">
+        <radio class="radio_nl" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+  <view wx:elif="{{!isShowPay}}">
+    <view class="title-value">{{payment}}</view>
+  </view>
+  <!-- <picker class="picker" mode="selector" range="{{payments}}" value="{{fdmindex}}" bindchange="listenerPickerFDMSelected">
+    <view class="input_base input_h30 col-1 sele_text" name="payment">{{payment}}</view> 
+  </picker> -->
+
+ </view>
+ </view> 
+
+ <view class="null_view"></view>
+
+ <view class="goods_item" wx:for="{{selctgoodsAr}}" wx:key="{{index}}">
+    <image src="{{item.archives_url[0]}}" class="goods_pic"></image>
+    <view class="goods_content">
+      <view class="goods_name">{{item.name}}(￥{{item.price}})</view>
+      <input class="goods_num" placeholder="商品数量" data-id="{{index}}" bindinput="bindOneInput" value="{{item.selectnum}}"/>
+    </view>
+ </view>
+ <view class="btn_ok" bindtap="selectGoods" data-statu="close">添加商品</view>  
+ 
+</view>
+
+
+  <!-- 提交按钮 -->
+  <button class="{{savebutton}}" bindtap="saveData">提交</button>

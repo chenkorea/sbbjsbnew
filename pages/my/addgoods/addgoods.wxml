@@ -1,0 +1,104 @@
+<view class="main-view">
+  <view class="userinfo-view-bg">
+    <!-- <view class="userinfo-title-view">
+      <text>完善个人信息</text>
+    </view> -->
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">分类：</text>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="text">
+        <view class="picker">
+          <view class="ct-right-item" wx:if="{{isFirst}}">
+            <text class="order-status">请选择</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+          <view class="ct-right-item" wx:else>
+            <text class="order-status">{{category_name}}</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+        </view>
+      </picker>
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">品名：</text>
+      <input class="userinfo-input" type="text" focus="{{nameFocus}}" value="{{name}}" bindinput="bindNameInput" placeholder="请输入品名" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">品牌：</text>
+      <input class="userinfo-input" type="text" focus="{{brandFocus}}" value="{{brand}}" bindinput="bindBrandInput" placeholder="请输入品牌" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">价格：</text>
+      <input class="userinfo-input" type="digit" focus="{{priceFocus}}" value="{{price}}" bindinput="bindPriceInput" placeholder="请输入价格" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">质保期单位：</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{serverOpt}}" range-key="data_name">
+        <view class="picker">
+           <view class="ct-right-item" wx:if="{{isFirstZBQ}}">
+            <text class="order-status">请选择</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+          <view class="ct-right-item" wx:else>
+            <text class="order-status">{{serverOpt[index].data_name}}</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+        </view>
+    </picker>
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">质保期：</text>
+      <input class="userinfo-input" type="number" focus="{{warrantyPeriodFocus}}" value="{{warranty_period}}" bindinput="bindPeriodInput" placeholder="请输入质保期" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">商品简介：</text>
+      <textarea class="userinfo-input" type="text" value="{{summary}}" focus="{{summaryFocus}}" bindblur="bindTextAreaBlur" style="height:100rpx" placeholder="请输入商品简介" />
+      <!-- <input class="userinfo-input" type="text" focus="{{summaryFocus}}" value="{{summary}}" bindinput="bindSummaryInput" placeholder="请输入商品简介" /> -->
+    </view>
+
+
+    <view class="userinfo-view">
+      <view class="ct-right-item">
+          <text class="order-status">是否上架：</text>
+          <switch checked bindchange="switch1Change"/>
+      </view>
+    </view>
+    
+    <view class="userinfo-view">
+      <text class="userinfo-text">上传商品图片（可上传多张）：</text>
+
+      <view class="userinfo-image-list">
+        <block wx:for="{{idNumberImageItems}}">
+          <template is="idNumberImageItem" data="{{item}}" />
+        </block>
+
+        <view class="userinfo-image-plus" bindtap="bindChooseIdNumberImageTap">
+          <icon class="iconfont icon-plus f-s-50 c-white" />
+        </view>
+      </view>
+    </view>
+
+    <view class="userinfo-view-save">
+      <view class="ct-save-btn" bindtap="bindSaveTap">保存</view>
+      <!-- <button type="warn" disabled="{{saveBtnDisabled}}" bindtap="bindSaveTap">保存</button> -->
+    </view>
+  </view>
+</view>
+
+<template name="idNumberImageItem">
+   <view class="userinfo-image">
+    <view class="userinfo-image-minus" data-index="{{item.index}}" bindtap="bindDeleteIdNumberImageTap">
+      <icon class="iconfont icon-guanbi3 f-s-35 c-red" />
+    </view>
+
+    <view class="userinfo-image-image" data-index="{{item.index}}" bindtap="bindPreviewIdNumberImageTap">
+      <image class="" src="{{item.path}}" />
+    </view>
+  </view>
+</template>

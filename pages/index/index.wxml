@@ -1,0 +1,174 @@
+<!--index.wxml-->
+<view class="main-view">
+  <view bindtap="bindViewTap" class="userinfo" bindtap="toMyCenter">
+    <image class="userinfo-avatar" src="{{weixinUserInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{username}}</text>
+  </view>
+  <view class="head-view">
+    <view class="total-text">共接单：{{orderAllCount}}</view>
+    <!-- <view class="time-text">在线时长：3天12小时4分</view>
+    <view class="success-text">成交率：98%</view> -->
+  </view>
+
+
+  <!-- 订单界面 -->
+  <view class="order_view" hidden="{{bottomstatus==2 || bottomstatus==3}}">
+    <view class="top-view">
+      <view class="left-status-view {{classone}}" data-id="1" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-daijiedan" text="" />
+        </view>
+        <text class="status-text">待接单</text>
+      </view>
+
+      <view class="left-status-view {{classtwo}}" data-id="2" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-yijiedan" />
+        </view>
+        <text class="status-text">已接单</text>
+      </view>
+
+      <view class="left-status-view {{classThree}}" data-id="3" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-zhuangxiubaozhang" />
+        </view>
+        <text class="status-text">开工中</text>
+      </view>
+
+      <view class="left-status-view {{classFour}}" data-id="4" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-daizhifu1" />
+        </view>
+        <text class="status-text">待支付</text>
+      </view>
+
+      <view class="left-status-view {{classFive}}" data-id="5" bindtap="bindStatusViewTap">
+        <view class="status-mm">
+          <icon class="iconfont icon-yiwancheng" />
+        </view>
+        <text class="status-text">已完成</text>
+      </view>
+    </view>
+
+    <scroll-view class="content-view" scroll-y="true" bindscrolltoupper="refreshCTData" bindscrolltolower="loadMoreData">
+
+      <block wx:for="{{jsDetailVos}}" wx:for-item="detailvo" wx:for-index="position" wx:key="order_id">
+        <view class="order-item">
+
+          <view class="ct-item">
+            <view class="order-no">订单号：</view>
+            <view class="order-no" style="color: #333333">{{detailvo.order_no}}</view>
+          </view>
+          <view class="ct-item">
+            <view class="order-no">发起时间：</view>
+            <view class="order-status">{{detailvo.create_time}}</view>
+          </view>
+          <view class="ct-item">
+            <view class="order-no">服务类别：</view>
+            <view class="order-status">{{detailvo.service_type_name}}</view>
+          </view>
+          <view class="ct-item">
+            <view class="order-no">服务地址：</view>
+            <view class="order-status">{{detailvo.service_address}}</view>
+          </view>
+          <view class="ct-item">
+            <view class="order-no">服务时间：</view>
+            <view class="order-status">{{detailvo.service_time_describe}}</view>
+          </view>
+          <view class="ct-item" hidden="{{!(detailvo.current_status != '07' && detailvo.current_status != '08')}}">
+            <view class="order-no">填写备注：</view>
+            <view class="order-status">{{detailvo.remarks}}</view>
+          </view>
+          <view class="ct-item" hidden="{{orderstatus=='1'}}">
+            <view class="order-no">下单顾客：</view>
+            <view class="order-status">{{detailvo.user_name}}
+              <image src="../images/blue_or.png" class="vip_icon" hidden="{{detailvo.is_vip != '2'}}"></image>
+              <image src="../images/oragin_or.png" class="vip_icon" hidden="{{detailvo.is_vip != '1'}}"></image>
+            </view>
+          </view>
+          <view class="ct-item" hidden="{{orderstatus=='1'}}">
+            <view class="order-no">报 价：</view>
+            <view class="order-status" style="color: orange; font-size: 35rpx">{{detailvo.tatal_price}}元</view>
+          </view>
+          <view class="ct-item" wx:if="{{detailvo.current_status == '06'}}">
+            <view class="order-no">完工时间：</view>
+            <view class="order-status">{{detailvo.process_time}}</view>
+          </view>
+          <view class="ct-item" wx:elif="{{detailvo.current_status == '07' || detailvo.current_status == '08'}}">
+            <view class="order-no">完成时间：</view>
+            <view class="order-status">{{detailvo.process_time}}</view>
+          </view>
+          <view class="ct-item" style="border-bottom: 1rpx solid #F0F0F0" data-item="{{detailvo}}" bindtap="bindItemClick">
+            <text class="order-status">查看详细</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+
+          <view class="but-lay-view">
+            <form wx:if="{{detailvo.current_status == '04' || detailvo.current_status == '02'}}" data-id="04" data-orderId="{{detailvo.order_id}}"  data-item="{{detailvo}}" report-submit bindsubmit='bindChangeStatusClick'>
+              <button class="pay_but" form-type="submit">开工</button>
+            </form>
+            <form wx:elif="{{detailvo.current_status == '01' && userstatus == '1'}}" data-id="02" data-orderId="{{detailvo.order_id}}"  data-item="{{detailvo}}" report-submit bindsubmit='bindChangeStatusClick'>
+              <button class="pay_but" form-type="submit">抢单</button>
+            </form>
+            <form wx:elif="{{detailvo.current_status == '03' && userstatus == '1'}}" data-id="03" data-orderId="{{detailvo.order_id}}"  data-item="{{detailvo}}" report-submit bindsubmit='bindChangeStatusClick'>
+              <button class="pay_but" form-type="submit">接单</button>
+            </form>
+            <form wx:elif="{{detailvo.current_status == '05'}}" data-id="05" data-orderId="{{detailvo.order_id}}" data-item="{{detailvo}}" report-submit bindsubmit='bindChangeStatusClick'>
+              <button class="pay_but" form-type="submit">完工</button>
+            </form>
+            <form wx:elif="{{detailvo.current_status == '06'}}" data-id="06" data-orderId="{{detailvo.order_id}}" data-item="{{detailvo}}" report-submit bindsubmit='bindChangeStatusClick' hidden='{{detailvo.pay_type=="1"}}'>
+              <button class="pay_but" form-type="submit">去支付</button>
+            </form>
+          </view>
+
+        </view>
+      </block>
+      <view wx:if="{{orderstatus == '5'}}" class="loading">
+        <view wx:if="{{hasMore}}" class="ct_loading_text">
+          <icon hidden="{{!hasMore}}" class="iconfont icon-loading1 ct_loading_icon" />
+          <text class="ct_loading_text">玩命的加载中...</text>
+        </view>
+        <view wx:else class="ct_loading_text"><text>没有更多内容了</text></view>
+      </view>
+
+
+      <!-- <view class="loading" hidden="{{!isLoading}}">正在加载更多...</view>
+        <view class="loading complete" hidden="{{!loadingComplete}}">已加载全部</view>   -->
+    </scroll-view>
+
+    <view class="ct_menu">
+      <!--菜单子健-->
+      <!-- <text class="img-style-1 img-style" animation="{{animCollect}}" bindtap="collect">停单</text> -->
+      <text class="img-style-2 img-style" animation="{{animTranspond}}" bindtap="transpond">休息中</text>
+      <text class="img-style-3 img-style" animation="{{animInput}}" bindtap="input">接单中</text>
+      <!--菜单键-->
+      <text class="{{showClass}} img-style-1" animation="{{animPlus}}" bindtap="plus">{{userstatusname}}</text>
+    </view>
+  </view>
+
+
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">请完善信息</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" data-id='11' type="idcard" bindinput="inputChange" class="input" placeholder="请输入身份证号"></input>
+      </view>
+      <view hidden="{{isNeed == '1'}}">
+        <view class="modal-input">
+          <input placeholder-class="input-holder" data-id='12' type="idcard" bindinput="inputChange" class="input" placeholder="请输入驾驶证号"></input>
+        </view>
+        <view class="modal-input">
+          <input placeholder-class="input-holder"  data-id='13' bindinput="inputChange" class="input" placeholder="请输入行驶证号"></input>
+        </view>
+      </view>
+      <view class="modal-input">
+        <input placeholder-class="input-holder" data-id='14' bindinput="inputChange" class="input" placeholder="请输入其他信息"></input>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+</view>

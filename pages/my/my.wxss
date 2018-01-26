@@ -1,0 +1,132 @@
+.my-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: white;
+}
+
+.my-header {
+  display: flex;
+  height: 200rpx;
+  width: 100%;
+  border-bottom: 20rpx solid #F4F4F4;
+}
+
+.type-text{
+  display: flex;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow:ellipsis;
+  padding-top: 10rpx;
+}
+
+.user-header {
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 40rpx;
+}
+
+.name-view {
+  flex: 1;
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.phone-val {
+  height: 40rpx;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+}
+
+.level-val {
+  height: 40rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+
+.type-view {
+  height: 30rpx;
+  width: 100%;
+  color: #333333;
+  font-size: 30rpx;
+}
+
+.seting-view {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 2rpx solid #F0F0F0;
+  font-size: 32rpx;
+  color: #333333;
+  align-items: center;
+}
+
+.order-item {
+  display: flex;
+  width: 100%;
+  border-bottom: 2rpx solid #F0F0F0;
+  align-items: center;
+}
+
+.left-time{
+  display: flex;
+  float: left;
+  background: #4EEE94;
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  vertical-align: center;
+  margin: 20rpx;
+}
+
+.right-area{
+  display: block;
+  float:right;
+  flex: 1;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+}
+
+.right-right-area {
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.right-right-area1 {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}
+
+.icon-mysss {
+  font-size: 40rpx;
+  margin: 20rpx;
+}
+
+.icon-mysss1 {
+  font-size: 50rpx;
+  margin: 20rpx;
+}
+
+.money-text {
+  float: right;
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  padding-right: 10rpx;
+  padding-left: 20rpx;
+}
+
+.time-text {
+  float: left;
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  padding-left: 10rpx;
+}

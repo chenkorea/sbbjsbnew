@@ -1,0 +1,50 @@
+.head-view {
+  background: #FF7F24;
+  height: 200rpx;
+  color: white;
+  border-bottom: 20rpx solid #F0F0F0;
+  padding: 20rpx;
+}
+
+.titl-1 {
+  font-size: 32rpx;
+  height: 100rpx;
+}
+
+.titl-2 {
+  font-size: 60rpx;
+  font-weight: 700;
+  height: 100rpx;
+}
+
+.content-view {
+  position: absolute;
+  top: 260rpx;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.order-item {
+  height: 140rpx;
+  border-bottom: 2rpx solid #F0F0F0;
+  padding-right: 40rpx;
+  padding-top: 20rpx;
+}
+
+.type-view {
+  height: 40rpx;
+  width: 100%;
+  padding: 10rpx 20rpx;
+  color: #333333;
+  font-size: 30rpx;
+}
+
+.date-text {
+  color: #999999;
+  float: right;
+}
+
+.money-text {
+  float: right;
+}

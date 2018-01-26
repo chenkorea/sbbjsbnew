@@ -1,0 +1,159 @@
+/* pages/login/reg/newregister.wxss */
+.main-view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.title-log{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100rpx;
+}
+
+.lock-log{
+  /* background: url('../../images/lock_login.png') no-repeat; */
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 20rpx;
+}
+
+.phone-img {
+  position: absolute;
+  left: 10rpx;
+  top: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.user-text {
+  position: absolute;
+  color: #333333;
+  margin-top: 20rpx;
+  height: 70rpx;
+  left: 80rpx;
+  top: 0;
+}
+
+.user-view {
+  position: relative;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;border-bottom: 2rpx solid #aaaaaa;
+  border-left: 1rpx solid #F0F0F0;
+  border-right: 1rpx solid #F0F0F0;
+}
+
+.law-view {
+  height: 40rpx;
+  margin-left: 10%;
+  margin-top: 20rpx;
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.iconfont {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.law-text {
+  position: absolute;
+  margin-left: 60rpx;
+  margin-top: 10rpx;
+}
+
+.agree-en-btn{
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  left: 10%;
+  border-radius: 50%;
+  background: #FF7F24;
+  padding: 10rpx;
+}
+
+.agree-un-btn{
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  left: 10%;
+  border-radius: 50%;
+  background: #aaaaaa;
+  padding: 10rpx;
+}
+
+ .register_en_btn {
+  display: flex;
+  margin-top: 40rpx;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  border-radius: 35rpx;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 90rpx;
+  background: #FF7F24;
+  color: #FFFFFF;
+  font-size: 30rpx;
+} 
+
+.register_un_btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  border-radius: 35rpx;
+  height: 90rpx;
+  background: #BEBEBE;
+  color: #FFFFFF;
+  font-size: 30rpx;
+}
+
+.verifycode-button {
+  position: absolute;
+  display: flex;
+  height: 80rpx;
+  width: 220rpx;
+  padding: 5rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  right: 0rpx;
+  bottom: 10rpx;
+  background: #FF7F24;
+  flex-direction: row;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #CCCCCC;
+  font-size: 30rpx;
+  align-content: center;
+  align-self: flex-end;
+}
+
+.register_view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50rpx;
+  color: #333333;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+
+.register_text
+{
+  color: #FF7F24;
+}

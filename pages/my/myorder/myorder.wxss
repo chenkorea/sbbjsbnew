@@ -1,0 +1,54 @@
+
+
+.title_text {
+  width: 100%;
+  padding: 10rpx;
+  font-size: 30rpx;
+  font-weight: 200;
+  color: #666666;
+  border-bottom: 20rpx solid #F4F4F4;
+  margin-top: 10rpx;
+}
+
+.info_view {
+  padding: 20rpx;
+}
+
+.infon_text {
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-top: 20rpx;
+}
+
+.air_container {
+  width: 100%;
+  padding: 10rpx;
+  background-color: white;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  padding-top: 10rpx;
+}
+
+.mv_item {
+  position: relative;
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 25%;
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 10rpx;
+  border: 1px solid #F0F0F0;
+}
+
+.mv_pic
+{
+  width: 100%;
+  height: 100%;
+}
+
+.pic {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,21 @@
+<!--goodsdetail.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="false">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" model="scaleToFit" style="width: {{imageWidth}}px;" data-url="{{imgUrls[index]}}" bindtap="preview"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!--商品信息描述  -->
+<view class="title-view">商品信息</view>
+<view class="main-view">
+<view class="desc-view">商品名称  {{name}}</view>
+<view class="desc-view">商品品牌  {{brand}}</view>
+<view class="desc-view">商品价格  {{price}}元</view>
+<view class="desc-view">商品编号  {{id}}</view>
+</view>
+<!--商品简介  -->
+<view class="main-view">
+<view class="title-view">商品简介</view>
+</view>
+<view class="content-view">{{contentText}}</view>
