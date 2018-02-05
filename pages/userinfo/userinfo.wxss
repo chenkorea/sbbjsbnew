@@ -112,4 +112,58 @@
 .ct-save-btn:hover {
   background: #FF7F24;
 }
+.userinfo-view .address-sel-view{
+  position: relative;
+  background: #f8f8ff;
+  height: 80rpx;
+  margin-left: 10rpx;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+}
+ .userinfo-view .address-sel-view .addr-show{
+  position: absolute;
+  margin-top: 15rpx;
+  padding-left: 10rpx;
+  width: 90%;
+  /*设置文字溢出部分为...*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.userinfo-view .address-sel-view .arrow-right{
+  position: absolute;
+  margin-top: 15rpx;
+  font-size: 44rpx;
+  float: right;
+  right: 15rpx;
+}
+
+.citypickers{
+  position: absolute;
+  width: 100%;
+  background-color: f5f5f5;
+  bottom: 0;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 4;
+  background: #FF7F24;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #FFFFFF;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #FFFFFF
+}
+
 
