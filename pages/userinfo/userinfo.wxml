@@ -16,17 +16,19 @@
       <input class="userinfo-input" type="idcard" focus="{{idNumberFocus}}" value="{{idNumber}}" maxlength="18" bindinput="bindIdNumberInput" placeholder="身份证号" />
     </view>
 
-    <view class="userinfo-view">
-      <text class="userinfo-text">所在城市（自动定位，不能输入）：</text>
-
-      <input class="userinfo-input" type="text" value="{{city}}" disabled="disabled" bindinput="bindCityInput" placeholder="自动定位" />
+    <view class="userinfo-view" bindtap='open'>
+      <text class="userinfo-text">所在城市：</text>
+      <view class='address-sel-view'>
+        <text class='addr-show'>{{showAddr[0]}}-{{showAddr[1]}}-{{showAddr[2]}}</text>
+        <icon class="arrow-right right-arrow icon-icon iconfont" text="" />
+      </view>
     </view>
 
     <view class="userinfo-view">
       <text class="userinfo-text">服务项目（可选多个）：</text>
 
       <checkbox-group bindchange="bindServiceTypesChange">
-        <label class="checkbox m-r-20 m-b-20 display-inline-block" wx:for="{{serviceTypesItemsTmp}}">
+        <label class="checkbox m-r-20 m-b-20 display-inline-block"  wx:key="" wx:for="{{serviceTypesItemsTmp}}">
           <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
           
           <text class="c-black f-s-32">{{item.name}}</text>
@@ -34,11 +36,11 @@
       </checkbox-group>
     </view>
 
-    <view class="userinfo-view">
+    <view  wx:if="{{!condition}}" class="userinfo-view">
       <text class="userinfo-text">上传身份证照片（可上传多张）：</text>
 
       <view class="userinfo-image-list">
-        <block wx:for="{{idNumberImageItems}}">
+        <block  wx:key="" wx:for="{{idNumberImageItems}}">
           <template is="idNumberImageItem" data="{{item}}" />
         </block>
 
@@ -48,12 +50,31 @@
       </view>
     </view>
 
-    <view class="userinfo-view-save">
+    <view  wx:if="{{!condition}}" class="userinfo-view-save">
       <view class="ct-save-btn" bindtap="bindSaveTap">保存</view>
       <!-- <button type="warn" disabled="{{saveBtnDisabled}}" bindtap="bindSaveTap">保存</button> -->
     </view>
   </view>
 </view>
+
+<view wx:if="{{condition}}" class="citypickers">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{_cur}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="open" class="city-cancel">取消</view>
+      <view bindtap="open_confirm" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
 
 <template name="idNumberImageItem">
    <view class="userinfo-image">

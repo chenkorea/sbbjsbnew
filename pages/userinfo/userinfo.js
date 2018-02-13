@@ -1,5 +1,6 @@
 // 获取应用实例
 var app = getApp();
+var cityData = require('../../utils/citys.js')
 
 Page({
   data: {
@@ -7,7 +8,13 @@ Page({
     nameFocus: false,
     idNumber: "",
     idNumberFocus: false,
-    city: "贵阳市",
+    provinces: [],
+    citys: [],
+    showAddr: ['', '', ''],
+    selAddr: ['', '', ''],
+    countys: [],
+    _cur:[0,0,0],//省市县联动游标
+    condition:false,
     redirectUrl: "", // 重定向 Url
     serviceTypesItems: [], // 服务项目数组
     idNumberImageItems: [], // 身份证照片
@@ -375,11 +382,12 @@ Page({
             });
           }
         }
-
+        var _addr = [app.getUserInfo().province, app.getUserInfo().city, app.getUserInfo().county]
         _this.setData({
           name: app.getUserInfo().name,
           idNumber: app.getUserInfo().id_number,
-          idNumberImageItems: idNumberImageItemsTmp
+          idNumberImageItems: idNumberImageItemsTmp,
+          showAddr: _addr
         });
 
         // 获取所有服务项目
@@ -416,9 +424,11 @@ Page({
         id: app.getUserInfo().id,
         name: _this.data.name,
         idNumber: _this.data.idNumber,
-        city: "0",
+        city: _this.data.showAddr[1],
         serviceTypesItems: serviceTypesItemsStrTmp,
-        deletedIdNumberImageIds: deletedIdNumberImageIdsTmp
+        deletedIdNumberImageIds: deletedIdNumberImageIdsTmp,
+        province: _this.data.showAddr[0],
+        county: _this.data.showAddr[2]
       },
       method: "POST",
       loading: true,
@@ -490,7 +500,7 @@ Page({
           if (res.data.code == 1) {
             if (app.isNotBlank(_this.data.redirectUrl)) {
               // 重定向到首页
-              wx.redirectTo({
+              wx.reLaunch({
                 url: _this.data.redirectUrl
               });
             }
@@ -505,12 +515,57 @@ Page({
       });
     }
   },
+  open: function () {
+    this.setData({
+      condition: !this.data.condition
+    })
+  },
+  open_confirm: function () {
+    var addr = this.data.selAddr
+    this.setData({
+      condition: !this.data.condition,
+      showAddr: addr
+    })
+  },
+  bindChange: function (e) {
+    var cur_ = e.detail.value
+    var _cur = this.data._cur
+    if (cur_[0] != _cur[0]){
+      cur_ = [cur_[0],0,0]
+      if (cur_[1] != _cur[1]) {
+        cur_ = [cur_[0], cur_[1], 0]
+      }
+    }
+    var _data = this.data.provinces
+    var province = _data[cur_[0]].name
+    var city = _data[cur_[0]].sub[cur_[1]].name
+    var county = _data[cur_[0]].sub[cur_[1]].sub[cur_[2]].name
+    this.setData({
+      _cur:cur_,
+      selAddr: [province, city, county],
+      citys: _data[cur_[0]].sub,
+      countys: _data[cur_[0]].sub[cur_[1]].sub
+    })
+  },
   onLoad: function(param) { // 页面加载事件：param-携带有上一个页面传来的参数
     var _this = this;
-
+    console.log('onLoad----------', param)
     _this.setData({
       redirectUrl: app.getString(param.redirectUrl)
     });
+    cityData.init(_this);
+    var _data = _this.data.cityData
+    var cur_ = this.data._cur
+    var province = _data[cur_[0]].name
+    var city = _data[cur_[0]].sub[cur_[1]].name
+    var county = _data[cur_[0]].sub[cur_[1]].sub[cur_[2]].name
+    //初始化省份
+    this.setData({
+      provinces: _data,
+      citys: _data[cur_[0]].sub,
+      countys: _data[cur_[0]].sub[cur_[1]].sub,
+      selAddr: [province, city, county]
+    })
   },
 
   onReady: function () { // 初始化
