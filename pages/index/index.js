@@ -396,7 +396,10 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      data: { code: code },
+      data: { 
+        code: code, 
+        isOld: '0'
+      },
       success: function (res) {
         var openIdStr = res.data.content[0];
         var jsonObj = JSON.parse(openIdStr);
@@ -1044,7 +1047,10 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      data: { code: code },
+      data: { 
+        code: code,
+        isOld: '0' 
+      },
       success: function (res) {
         if (wx.hideLoading) {
           wx.hideLoading();
@@ -1152,7 +1158,7 @@ Page({
         
         wx.showToast({ title: '支付成功', })
         // 发送通知给师傅端
-        that.paysendMsgForStatus(orderId, '07', orderObj.process_person_id);
+        that.paysendMsgForStatus(orderId, '07', orderObj.process_person_id, '0');
 
         //pay success update form_id
         that.paysaveWXFormId(formId, uid);
@@ -1212,7 +1218,7 @@ Page({
 
 
 // 发送消息给微信
-  paysendMsgForStatus: function (orderId, status, jsId) {
+  paysendMsgForStatus: function (orderId, status, jsId, isOld) {
     var that = this;
     wx.request({
       url: getApp().globalData.serverIp + 'openkey/sendMsgForStatus',
@@ -1223,7 +1229,8 @@ Page({
       data: {
         orderId: orderId,
         status: status,
-        jsId: jsId
+        jsId: jsId,
+        isOld: isOld,
       },
       success: function (res) {
       }
@@ -1288,7 +1295,7 @@ Page({
             } 
             // 发送消息
             _this.sendJPushMsg(orderItem.user_id, obj.process_stage);
-            _this.sendMsgForStatus(orderId, obj.process_stage, userInfo.id);
+            _this.sendMsgForStatus(orderId, obj.process_stage, userInfo.id, '0');
             console.log('成功')
           } else if (res.data.code == -19) {
             wx.showToast({
@@ -1309,13 +1316,14 @@ Page({
   /**
    * 发送通知消息
    */
-  sendMsgForStatus: function (orderId, status, jsId) {
+  sendMsgForStatus: function (orderId, status, jsId, isOld) {
     app.request({
       url: "phone/openkey/sendMsgForStatus",
       data: {
         orderId: orderId,
         status: status,
-        jsId: jsId
+        jsId: jsId,
+        isOld: isOld
       },
       method: 'POST',
       loading: false,
