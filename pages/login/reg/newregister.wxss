@@ -141,6 +141,7 @@
   font-size: 30rpx;
   align-content: center;
   align-self: flex-end;
+  z-index: 20;
 }
 
 .register_view{
