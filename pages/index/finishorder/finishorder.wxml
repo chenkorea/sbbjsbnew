@@ -39,6 +39,26 @@
  </view>
  </view> 
 
+ <!-- 开锁图片 -->
+  <view class="type-view" style='border-top: 1rpx solid #F0F0F0' >
+    <text class="type-nmae">订单完工图片</text>
+    <view class="val-view">
+      <text class="type-value">当前选择{{goodImageItems.length}}张</text><icon class="iconfont icon-xiangxiajiantou" />
+    </view>
+  </view>
+
+  <view class="type-view" style='margin-top:15rpx;margin-left:30rpx'>
+    <view class="userinfo-image-list">
+      <block wx:for="{{goodImageItems}}">
+        <template is="goodImageItem" data="{{item}}" />
+      </block>
+
+      <view class="userinfo-image-plus" bindtap="bindChooseGoodsrImageTap">
+        <icon class="iconfont icon-plus f-s-50 c-white" />
+      </view>
+    </view>
+  </view>
+
  <view class="null_view"></view>
 
  <view class="goods_item" wx:for="{{selctgoodsAr}}" wx:key="{{index}}">
@@ -55,3 +75,15 @@
 
   <!-- 提交按钮 -->
   <button class="{{savebutton}}" bindtap="saveData">提交</button>
+
+  <template name="goodImageItem">
+   <view class="userinfo-image">
+    <view class="userinfo-image-minus" data-index="{{item.index}}" bindtap="bindDeleteGoodsImageTap">
+      <icon class="iconfont icon-guanbi3 f-s-35" style='color: #E64240' />
+    </view>
+
+    <view class="userinfo-image-image" data-index="{{item.index}}" bindtap="bindPreviewGoodsImageTap">
+      <image class="" src="{{item.path}}" />
+    </view>
+  </view>
+</template>

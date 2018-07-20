@@ -29,7 +29,8 @@ Page({
     savebutton:"save-en-button",
     loopid:[],
     guarantee:0,
-    guarantee_date_type:'1'
+    guarantee_date_type: '1',
+    goodImageItems: [] // 商品图片
   },
   listenerRadioGroup: function (e) {
     //改变index值，通过setData()方法重绘界面
@@ -439,6 +440,7 @@ Page({
           content: '订单已完工成功！',
           showCancel: false,
         })
+        that.uploadFile();
 
         var pages = getCurrentPages(); 
         var currPage = pages[pages.length - 1]; //当前页面
@@ -496,6 +498,102 @@ Page({
         })
       }
     }, dispatching_id)
+  },
+
+  uploadFile:function(){
+    if (this.data.userOrder.order_id && this.data.goodImageItems.length > 0) {
+      for (var i = 0; i < this.data.goodImageItems.length; i++) {
+        var eTmp = this.data.goodImageItems[i];
+        app.uploadFile({
+          url: "phone/openkey/uploadMobileFile",
+          name: "file",
+          loading: true,
+          filePath: eTmp.path,
+          formData: {
+            parent_id: this.data.userOrder.order_id,
+            file_type: "5"
+          },
+          loadingMsg: "正在上传商品图片",
+          completeAllFn: function (e) {
+            console.log('uploadFile-----------------completeAllFn e:',JSON.stringify(e))
+          }
+        });
+      }
+    }
+  },
+  bindChooseGoodsrImageTap: function (e) { // 选择商品照片
+    var _this = this;
+
+    wx.chooseImage({
+      count: 9,
+      sizeType: ["original"],
+      success: function (res) {
+        var goodImageItemsTmp = _this.data.goodImageItems;
+
+        for (var i = 0; i < res.tempFiles.length; i++) {
+          var file = res.tempFiles[i];
+
+          goodImageItemsTmp.push({
+            id: "",
+            path: file.path,
+            index: goodImageItemsTmp.length
+          });
+        }
+
+        _this.setData({
+          goodImageItems: goodImageItemsTmp
+        });
+      }
+    });
+  },
+  bindPreviewGoodsImageTap: function (e) { // 预览身份证照片
+    var _this = this;
+    // 取出数组索引
+    var index = e.currentTarget.dataset.index;
+    var goodImagePaths = [];
+
+    if (_this.data.goodImageItems.length > 0) {
+      for (var i = 0; i < _this.data.goodImageItems.length; i++) {
+        var eTmp = _this.data.goodImageItems[i];
+
+        goodImagePaths.push(eTmp.path);
+      }
+    }
+
+    if (goodImagePaths.length > 0) {
+      var currgoodImagePath = goodImagePaths[index];
+
+      wx.previewImage({
+        current: currgoodImagePath, // 当前显示图片的http链接
+        urls: goodImagePaths
+      });
+    }
+  },
+  bindDeleteGoodsImageTap: function (e) { // 删除身份证照片
+    var _this = this;
+    // 取出数组索引
+    var index = e.currentTarget.dataset.index;
+    var goodImageItemsTmp1 = _this.data.goodImageItems;
+
+    // 删除 index 指定的元素，并返回
+    var goodImageTmp = goodImageItemsTmp1.splice(index, 1)[0];
+
+    // 从新整理数组
+    var goodImageItemsTmp2 = [];
+
+    for (var i = 0; i < goodImageItemsTmp1.length; i++) {
+      var eTmp = goodImageItemsTmp1[i];
+
+      goodImageItemsTmp2.push({
+        id: app.getString(eTmp.id),
+        path: app.getString(eTmp.path),
+        index: goodImageItemsTmp2.length
+      });
+    }
+
+    _this.setData({
+      goodImageItems: goodImageItemsTmp2,
+    });
   },
   /**
    * 生命周期函数--监听页面加载
