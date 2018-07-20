@@ -29,10 +29,10 @@
 
     <button class="login_btn" bindtap="bindLoginBtnTap">登录</button>
 
-    <view class="ct_title">
+    <!-- <view class="ct_title">
       <text class="login-title" style="margin-left: 0rpx">没有账户, </text>
       <text class="login-title" style="color: #FF7F24" bindtap="bindRegisterBtnTap">立即注册</text>
-    </view>
+    </view> -->
     <!-- <button class="register_btn" bindtap="bindRegisterBtnTap">注册</button> -->
     <!-- <text class="forget-text" bindtap="bindForgetTap">忘记密码？</text> -->
   </view>

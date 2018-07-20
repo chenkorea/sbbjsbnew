@@ -502,7 +502,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    var jsonclStr = options.jsonclStr;
+
+    // wx.setStorageSync('localitem', _this.data.jsonclStrTemp)
+    // var jsonclStr = options.jsonclStr;
+    var jsonclStr = wx.getStorageSync('localitem');
+
+    console.log('processObj = ', jsonclStr);
     var userOrder = JSON.parse(jsonclStr);
     if (userOrder.is_vip == '1'){
       this.setData({
@@ -510,7 +515,9 @@ Page({
       })
     }
     var jsonStr = options.jsonStr;
+
     var processObj = JSON.parse(jsonStr);
+
 
     this.setData({ service_price: userOrder.service_price == '' ? 0.0 : userOrder.service_price*1})
     this.setData({ additional_service_price: userOrder.additional_service_price == '' ? 0.0 : userOrder.additional_service_price * 1 })

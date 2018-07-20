@@ -1,26 +1,30 @@
 <!-- 我的界面 -->
-  <view class="my-view">
-    <view class="my-header">
-      <image src="{{userphoto}}" class="user-header"></image>
-      <view class="name-view">
-        <view class="phone-val">{{username}}</view>
-         <view class="level-val">{{userphone}}</view> 
-      </view>
+<view class="my-view">
+  <view class="my-header">
+    <image src="{{userphoto}}" class="user-header"></image>
+    <view class="name-view">
+      <view class="phone-val">{{username}}</view>
+      <view class="level-val">{{userphone}}</view>
     </view>
-    <view class="seting-view" bindtap="addgoods">
-      <icon class="iconfont icon-mysss icon-kefu" /> 
-      <text class="my-title">添加商品</text>
-    </view>
-    <view class="seting-view" bindtap="gomyorder">
-      <icon class="iconfont icon-mysss icon-kefu" /> 
-      <text class="my-title">我的订单收益</text>
-    </view>
-    <view class="seting-view" bindtap="tomyinfo">
-       <icon class="iconfont icon-mysss1 icon-shezhi" /> 
-      <text class="my-title">个人资料完善</text>
-    </view>
-    <view class="seting-view" bindtap="tosetting">
-       <icon class="iconfont icon-mysss1 icon-shezhi" /> 
-      <text class="my-title">重置密码</text>
-    </view>
-  </view> 
+  </view>
+  <view class="seting-view" bindtap="addgoods">
+    <icon class="iconfont icon-mysss icon-kefu" />
+    <text class="my-title">添加商品</text>
+  </view>
+  <view class="seting-view" bindtap="recordordermessage">
+    <icon class="iconfont icon-mysss icon-kefu" />
+    <text class="my-title">代录订单</text>
+  </view>
+  <view class="seting-view" bindtap="gomyorder">
+    <icon class="iconfont icon-mysss icon-kefu" />
+    <text class="my-title">我的订单收益</text>
+  </view>
+  <view class="seting-view" bindtap="tomyinfo">
+    <icon class="iconfont icon-mysss1 icon-shezhi" />
+    <text class="my-title">个人资料完善</text>
+  </view>
+  <view class="seting-view" bindtap="tosetting">
+    <icon class="iconfont icon-mysss1 icon-shezhi" />
+    <text class="my-title">重置密码</text>
+  </view>
+</view>

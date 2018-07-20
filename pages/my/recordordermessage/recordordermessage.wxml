@@ -1,0 +1,127 @@
+<view class="main-view">
+  <view class="userinfo-view-bg">
+    <!-- <view class="userinfo-title-view">
+      <text>完善个人信息</text>
+    </view> -->
+
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">客户姓名*：</text>
+      <input class="userinfo-input" type="text" focus="{{nameFocus}}" value="{{user_name}}" bindinput="bindNameInput" placeholder="请输入客户姓名" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">客户电话*	：</text>
+      <input class="userinfo-input" type="number" focus="{{phoneFocus}}" value="{{user_phone}}" bindinput="bindPhoneInput" placeholder="请输入客户电话" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">服务项目*：</text>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="service_item">
+        <view class="picker">
+          <view class="ct-right-item" wx:if="{{isFirst}}">
+            <text class="order-status">请选择服务项目</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+          <view class="ct-right-item" wx:else>
+            <text class="order-status">{{category_name}}</text>
+            <icon class="right-arrow icon-icon iconfont" text="" />
+          </view>
+        </view>
+      </picker>
+    </view>
+
+
+    
+      <view class="userinfo-view">
+        <text class="userinfo-text">身份证号：</text>
+        <input class="userinfo-input" type='idcard' focus="{{idCardFocus}}" value="{{id_card}}" bindinput="bindIdcardInput" placeholder="请输入身份证号" />
+      </view>
+			 <view class="userinfo-view">
+        <text class="userinfo-text">其他证号：</text>
+        <input class="userinfo-input" type='text' focus="{{otherFocus}}" value="{{other_card}}" bindinput="bindOthercardInput" placeholder="请输入其他" />
+      </view>
+	<block wx:if="{{is_showCard}}">
+      <view class="userinfo-view" hidden='{{isNeed!=2}}'>
+        <text class="userinfo-text">行驶证号：</text>
+        <input class="userinfo-input" type='text' focus="{{carCardFocus}}" value="{{car_card}}" bindinput="bindCarcardInput" placeholder="请输入行驶证号" />
+      </view>
+
+      <view class="userinfo-view" hidden='{{isNeed!=2}}'>
+        <text class="userinfo-text">驾驶证号：</text>
+        <input class="userinfo-input" type='text' focus="{{driveCardFocus}}" value="{{drive_card}}" bindinput="bindDrivecardInput" placeholder="请输入驾驶证号" />
+      </view>
+
+     
+    </block>
+    <view class="userinfo-view">
+      <text class="userinfo-text">服务费用*：</text>
+      <input class="userinfo-input" type="digit" focus="{{priceFocus}}" value="{{service_price}}" 				bindinput="bindServicepriceInput" placeholder="请输入服务费用" />
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">附加服务费：</text>
+      <input class="userinfo-input" type="digit" focus="{{addPriceFocus}}" value="{{additional_service_price}}" bindinput="bindAddpriceInput" placeholder="请输入附加服务费用" />
+    </view>
+    <view class="userinfo-view">
+      <text class="userinfo-text">服务地址：</text>
+			 <input class="userinfo-input" type="text" focus="{{addressFocus}}" value="{{service_address}}" 				bindinput="bindServiceAddrInput" placeholder="请输入服务地址" />
+
+      <!-- <view class="picker" catchtap="chooseLocationMap">
+        <view class="ct-right-item" wx:if="{{isAddrFirst}}">
+          <text class="order-status">请选择服务地址</text>
+          <icon class="right-arrow icon-icon iconfont" text="" />
+        </view>
+        <view class="ct-right-item" wx:else>
+          <text class="order-status">{{address}}</text>
+          <icon class="right-arrow icon-icon iconfont" text="" />
+        </view>
+      </view> -->
+    </view>
+
+    <view class="userinfo-view">
+      <text class="userinfo-text">拍照上传（可上传多张）：</text>
+
+      <view class="userinfo-image-list">
+        <block wx:for="{{idNumberImageItems}}">
+          <template is="idNumberImageItem" data="{{item}}" />
+        </block>
+
+        <view class="userinfo-image-plus" bindtap="bindChooseIdNumberImageTap">
+          <icon class="iconfont icon-plus f-s-50 c-white" />
+        </view>
+      </view>
+    </view>
+
+
+    <view class="null_view"></view>
+    <view class="goods_item" wx:for="{{selctgoodsAr}}" wx:key="{{index}}">
+      <image src="{{item.archives_url[0]}}" class="goods_pic"></image>
+      <view class="goods_content">
+        <view class="goods_name">{{item.name}}(￥{{item.price}})</view>
+        <input class="goods_num" placeholder="商品数量" data-id="{{index}}" bindinput="bindOneInput" value="{{item.selectnum}}	" />
+      </view>
+    </view>
+
+    <!-- <view class="null_view"></view> -->
+    <view class="btn_ok" bindtap="selectGoods" data-statu="close">添加商品</view>
+
+    <view class="userinfo-view-save">
+      <view class="ct-save-btn" bindtap="bindSaveTap">保存</view>
+      <!-- <button type="warn" disabled="{{saveBtnDisabled}}" bindtap="bindSaveTap">保存</button> -->
+    </view>
+  </view>
+</view>
+
+
+<template name="idNumberImageItem">
+  <view class="userinfo-image">
+    <view class="userinfo-image-minus" data-index="{{item.index}}" bindtap="bindDeleteIdNumberImageTap">
+      <icon class="iconfont icon-guanbi3 f-s-35 c-red" />
+    </view>
+
+    <view class="userinfo-image-image" data-index="{{item.index}}" bindtap="bindPreviewIdNumberImageTap">
+      <image class="" src="{{item.path}}" />
+    </view>
+  </view>
+</template>

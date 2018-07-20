@@ -9,6 +9,7 @@
     "pages/my/money/money",
     "pages/my/addgoods/addgoods",
     "pages/my/orderprocess/orderprocess",
+    "pages/my/recordordermessage/recordordermessage",
     "pages/my/myorder/myorder",
     "pages/userinfo/userinfo",
     "pages/keymarkets/keymarkets",
@@ -22,7 +23,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FF7F24",
+    "navigationBarBackgroundColor": "#396fbf",
     "navigationBarTitleText": "锁帮帮技师",
     "navigationBarTextStyle": "white"
   }

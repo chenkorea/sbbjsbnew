@@ -40,9 +40,14 @@ Page({
       url: "../userinfo/userinfo?redirectUrl=../index/index"
     })
   },
-  addgoods:function() {
+  addgoods: function () {
     wx.navigateTo({
       url: './addgoods/addgoods',
     })
   },
+  recordordermessage: function () {
+    wx.navigateTo({
+      url: './recordordermessage/recordordermessage',
+    })
+  }
 })

@@ -91,7 +91,7 @@
   align-items: center;
   justify-content: center;
   height: 80rpx;
-  background: #FF7F24;
+  background: #396fbf;
   border-radius: 40rpx;
   color: #FFFFFF;
   font-size: 40rpx;

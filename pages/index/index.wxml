@@ -18,7 +18,7 @@
         <view class="status-mm">
           <icon class="iconfont icon-daijiedan" text="" />
         </view>
-        <text class="status-text">待接单</text>
+        <text class="status-text">新订单</text>
       </view>
 
       <view class="left-status-view {{classtwo}}" data-id="2" bindtap="bindStatusViewTap">

@@ -1535,6 +1535,7 @@ Page({
           _this.setData({ driveCard: '' });
           _this.setData({ tempOrderId: '' });
           _this.setData({ isCommitSuccess: false });
+          wx.setStorageSync('localitem', _this.data.jsonclStrTemp)
           wx.navigateTo({
             url: '../index/finishorder/finishorder?jsonclStr=' + _this.data.jsonclStrTemp + '&jsonStr=' + _this.data.jsonStrTemp,
           })
