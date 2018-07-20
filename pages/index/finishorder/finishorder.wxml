@@ -41,7 +41,7 @@
 
  <!-- 开锁图片 -->
   <view class="type-view" style='border-top: 1rpx solid #F0F0F0' >
-    <text class="type-nmae">订单完工图片</text>
+    <text class="type-nmae">上传现场图片 (可上传多张)</text>
     <view class="val-view">
       <text class="type-value">当前选择{{goodImageItems.length}}张</text><icon class="iconfont icon-xiangxiajiantou" />
     </view>
