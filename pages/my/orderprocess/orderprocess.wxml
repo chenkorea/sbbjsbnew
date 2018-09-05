@@ -53,4 +53,7 @@
     </view>
   </view>
 
+  <!-- 提交按钮 -->
+  <button class="save-button" bindtap="finishOrder" v-if="{{ordersProcess[0].process_stage!='07'&&ordersProcess[0].process_stage!='08'}}">确认已线下收付费用，并手动完成订单</button>
+
 </view>

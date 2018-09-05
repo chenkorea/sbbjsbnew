@@ -118,3 +118,15 @@
   height: 40rpx;
 }
 
+
+.save-button {
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  background: #396fbf;
+  border-radius:0;
+}
